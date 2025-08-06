@@ -1,23 +1,33 @@
-# Java compiled files
+# Java
 *.class
 *.jar
 *.war
-*.log
 
-# Maven build directories
+# Maven
 /target/
 /.mvn/
-!/.mvn/wrapper/maven-wrapper.jar
+/dependency-reduced-pom.xml
 
-# IDE project files
+# IDEs
 *.iml
 .idea/
 .vscode/
 
-# OS-specific files
+# Logs
+*.log
+logs/
+
+# Environment and properties
+.env
+application.properties
+application-dev.properties
+application-test.properties
+
+# Databases
+*.mv.db
+*.h2.db
+*.db
+
+# OS
 .DS_Store
 Thumbs.db
-
-# Logs
-logs/
-*.log
