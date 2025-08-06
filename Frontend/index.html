@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="EasyBook.jpeg" />
+    <title>EasyBook - Movie Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="aichat.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+         <div class="logo">
+            <img src="EasyBook.jpeg" alt="EasyBook Logo" height="30" width="35">
+            EasyBook
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link" onclick="showSection('home')">Home</a>
+            <a href="#about" class="nav-link" onclick="showSection('about')">About Us</a>
+            <a href="#contact" class="nav-link" onclick="showSection('contact')">Contact</a>
+            <a href="#ai-chat" class="nav-link ai-link" onclick="showSection('ai-chat')"><span class="ai-indicator"><img src="JAKSIA.jpeg" alt="JAKSIA"></span>JAKSIA
+            </a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home-section">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to EasyBook</h1>
+            <p>Your ultimate destination for hassle-free movie ticket booking</p>
+        </section>
+
+        <!-- Movies Section -->
+        <div class="container">
+            <section class="movies-section">
+                <h2 class="section-title">Featured Movies</h2>
+                <div id="moviesGrid" class="movies-grid">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        Loading movies...
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Flow -->
+            <div id="bookingFlow" class="booking-flow">
+                <h2 style="text-align: center; color: #333; margin-bottom: 3rem;">Complete Your Booking</h2>
+                
+                <!-- City Selection -->
+                <div id="cityStep" class="booking-step hidden">
+                    <h3>📍 Select City</h3>
+                    <div id="citiesGrid" class="selection-grid cities-grid">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            Loading cities...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theater Selection -->
+                <div id="theaterStep" class="booking-step hidden">
+                    <h3>🎭 Select Theater</h3>
+                    <div id="theatersGrid" class="selection-grid theaters-grid">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            Loading theaters...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Selection -->
+                <div id="showStep" class="booking-step hidden">
+                    <h3>🕐 Select Show Time</h3>
+                    <div id="showsGrid" class="selection-grid shows-grid">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            Loading shows...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seat Selection -->
+                <div id="seatStep" class="booking-step hidden">
+                    <h3>💺 Select Seats</h3>
+                    <div class="cinema-layout">
+                        <div class="screen"></div>
+                        
+                        <div class="seat-legend">
+                            <div class="legend-item">
+                                <div class="legend-seat legend-available"></div>
+                                <span>Available</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-seat legend-selected"></div>
+                                <span>Selected</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-seat legend-occupied"></div>
+                                <span>Occupied</span>
+                            </div>
+                        </div>
+                        
+                        <div id="seatsContainer" class="seats-container">
+                            <div class="loading">
+                                <div class="loading-spinner"></div>
+                                Loading seats...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="bookingSummary" class="booking-summary hidden">
+                        <h4>Booking Summary</h4>
+                        <div class="summary-row">
+                            <span>Movie:</span>
+                            <span id="summaryMovie">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Theater:</span>
+                            <span id="summaryTheater">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Show Time:</span>
+                            <span id="summaryShow">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Selected Seats:</span>
+                            <span id="summarySeats">-</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Total Price:</span>
+                            <span>₹<span id="totalPrice">0</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="bookNowBtn" class="btn btn-primary book-btn" onclick="bookTickets()" disabled>
+                    🎫 Book Now
+                </button>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">🎉</div>
+                <h2 class="success-title">Booking Confirmed!</h2>
+                <div id="successDetails" class="success-details">
+                    <!-- Details will be filled by JavaScript -->
+                </div>
+                <button class="btn btn-primary" onclick="resetBooking()">Book Another Movie</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section about-section">
+        <h2 class="section-title">About EasyBook</h2>
+        <p style="font-size: 1.2rem; text-align: center; margin-bottom: 3rem; color: #666;">
+            Your ultimate destination for hassle-free movie ticket booking. Experience cinema like never before with our seamless booking platform.
+        </p>
+        
+        <div class="about-content">
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3>Latest Movies</h3>
+                <p>Book tickets for the latest blockbusters and indie films. We partner with theaters nationwide to bring you the best cinema experience.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant and Easy Booking</h3>
+                <p>Lightning-fast booking process that takes less than 2 minutes. Select your movie, choose seats, and you're done! No need to login or signup!!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>Secure Payments</h3>
+                <p>Bank-level security for all transactions. Multiple payment options including cards, wallets, and UPI.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Friendly</h3>
+                <p>Optimized for all devices. Book tickets on the go with our responsive design that works perfectly on phones and tablets.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎫</div>
+                <h3>Digital Tickets</h3>
+                <p>Eco-friendly digital tickets sent instantly to your email. No more waiting in queues or losing paper tickets.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3>Best Prices</h3>
+                <p>Competitive pricing with exclusive offers and discounts. Get the best deals on movie tickets every day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>JAKSIA</h3>
+                <p>JAKSIA is your smart AI agent in EasyBook, guiding you through every step of the movie ticket booking process. From answering your questions to helping you find available movies, cities, and theaters—JAKSIA makes booking seamless and effortless.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section contact-section">
+        <h2 class="section-title">Contact Us</h2>
+        <p style="font-size: 1.2rem; text-align: center; margin-bottom: 3rem; color: #666;">
+            We're here to help! Reach out to us through any of these channels and we'll get back to you promptly.
+        </p>
+        
+        <div class="contact-info">
+            <div class="contact-card">
+                <div class="feature-icon">📞</div>
+                <h3>Phone Support</h3>
+                <p>+91 7276486124</p>
+                <p>Available 24/7 for your convenience</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="feature-icon">✉️</div>
+                <h3>Email</h3>
+                <p>support@easybook.com</p>
+                <p>We respond within 2 hours</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="feature-icon">📍</div>
+                <h3>Office Address</h3>
+                <p>123 Cinema Street<br>Entertainment District<br>Pune, Maharashtra 412203</p>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <!-- AI CHAT SECTION -->
+    <div id="ai-chat" class="section">
+        <div class="chat-app">
+            <!-- Sidebar -->
+            <div class="chat-sidebar">
+                <h2>JAKSIA</h2>
+                <button class="new-chat-btn" onclick="startNewChat()">+ New Chat</button>
+                <ul class="chat-history" id="chat-history"></ul>
+                
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('What movies are available?')">
+                        🎬 Available Movies
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('Show me theaters in Mumbai')">
+                        🎭 Find Theaters
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('How do I book tickets?')">
+                        🎫 Book Tickets
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('Show timings for latest movies')">
+                        ⏰ Show Timings
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Main Chat Area -->
+            <div class="chat-main">
+                <div class="chat-header">
+                    <span class="username">Movie Lover</span>! 
+                    <div class="chat-status">
+                        Ask me about movies, theaters, show timings, or anything else!
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-box">
+                    <div class="message bot-message fade-in-up">
+                         Welcome to JAKSIA! 
+                        <br><br>
+                        I can help you with:
+                        <br>• Finding available movies and showtimes
+                        <br>• Locating theaters in your city  
+                        <br>• Getting movie recommendations
+                        <br>• Booking guidance and support
+                        <br>• General movie information
+                        <br><br>
+                        What would you like to know today?
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input
+                        type="text"
+                        id="user-input"
+                        class="chat-input-field"
+                        placeholder="Ask about movies, theaters, bookings..."
+                        onkeypress="handleKeyPress(event)"
+                        autocomplete="off"
+                    />
+                    <button id="send-btn" class="send-btn" onclick="sendMessage()">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Button (for small screens) -->
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: none;">
+        ☰
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EasyBook</h3>
+                <p>Your ultimate destination for hassle-free movie ticket booking. Experience cinema like never before with our seamless platform.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                    <li><a href="#about" onclick="showSection('about')">About Us</a></li>
+                    <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Booking Guide</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Customer Care</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📞 +91 7276486124</p>
+                <p>✉️ support@easybook.com</p>
+                <p>📍 123 Cinema Street<br>Pune, Maharashtra 412203</p>
+                <p>🕒 24/7 Customer Support</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 EasyBook. All rights reserved.
+             </p>
+            <p>Designed with Dedication and Love for movie lovers everywhere</p>
+            <p><strong>Legal Notice:</strong> This platform is for educational and demonstration purposes. All movie titles, images, and content are used for illustrative purposes only.</p>
+        </div>
+    </footer>
+
+     <!-- Include Chart.js for sentiment analysis -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="aichat.js"></script>
+
+    <script>
+        // Enhanced showSection function
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Add active class to clicked nav link
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // Special handling for AI chat section
+            if (sectionId === 'ai-chat') {
+                // Initialize AI chat if not already done
+                if (!window.easyBookAI && document.getElementById('chat-box')) {
+                    setTimeout(() => {
+                        window.easyBookAI = new EasyBookAI();
+                    }, 100);
+                }
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            if (window.easyBookAI) {
+                window.easyBookAI.toggleMobileMenu();
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up responsive design
+            function handleResize() {
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                if (window.innerWidth <= 480) {
+                    if (mobileMenuBtn) mobileMenuBtn.style.display = 'block';
+                } else {
+                    if (mobileMenuBtn) mobileMenuBtn.style.display = 'none';
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+
+            // Initialize AI chat if we're on that section
+            const currentHash = window.location.hash;
+            if (currentHash === '#ai-chat') {
+                showSection('ai-chat');
+            }
+        });
+
+        // Handle browser navigation
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            }
+        });
+    </script>
+</body>
+</html>
