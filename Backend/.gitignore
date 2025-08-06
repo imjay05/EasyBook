@@ -1,0 +1,23 @@
+# Java compiled files
+*.class
+*.jar
+*.war
+*.log
+
+# Maven build directories
+/target/
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# IDE project files
+*.iml
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
