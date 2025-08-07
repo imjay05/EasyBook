@@ -21,9 +21,7 @@ public class Show {
     private Theater theater;
 
     private String timing;
-
     private int availableSeats;
-
 
     public Show() {
     }
