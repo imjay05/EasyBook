@@ -159,12 +159,15 @@ The footer section provides branding, navigation, and support links to enhance u
 
 ![Jaksia Assistant](ScreenShots/EasyBookUI/JAKSIA/JAKSIA.png)
 
-🤝 Contribution
+## 🤝 Contribution
+
 Contributions are welcome!
 Fork the repo → Make changes → Submit a pull request.
 
-📬 Contact
+## 📬 Contact
+
 Created by Jay 
+
 🔗 GitHub: @imjay05
 🔗 Gmail : imjaydigambarshelke@gmail.com
 🔗 Linkdin : https://www.linkedin.com/in/jay-shelke-4323a22a5/
