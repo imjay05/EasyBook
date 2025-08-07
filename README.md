@@ -149,7 +149,7 @@ Below is the homepage of the EasyBook platform:
 
 ### 📄 Footer
 
-The footer section provides branding, navigation, and support links to enhance user accessibility:
+The footer section provides Contact info, Quick Links, and support links to enhance user accessibility:
 
 ![Footer](ScreenShots/EasyBookUI/Footer/Footer.png)
 
