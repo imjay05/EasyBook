@@ -138,10 +138,14 @@ Here's the EER diagram representing the database structure of EasyBook:
 Below are some key UI screens from the EasyBook platform.
 
 🎬 Homepage
+### 🎬 Homepage
 
-📅 Booking Flow
+Below is the homepage of the EasyBook platform:
 
-🪑 Seat Selection
+![Homepage](ScreenShots/EasyBookUI/Home/Home1.png)
+![Homepage](ScreenShots/EasyBookUI/Home/Home2.png)
+![Homepage](ScreenShots/EasyBookUI/Home/Home3.png)
+
 
 🤝 Contribution
 Contributions are welcome!
@@ -150,3 +154,5 @@ Fork the repo → Make changes → Submit a pull request.
 📬 Contact
 Created by Jay 
 🔗 GitHub: @imjay05
+🔗 Gmail : imjaydigambarshelke@gmail.com
+🔗 Linkdin : https://www.linkedin.com/in/jay-shelke-4323a22a5/
