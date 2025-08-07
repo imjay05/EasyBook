@@ -18,7 +18,8 @@ public class PaymentOrder {
     private String phone;
 
     @Column(name = "movie_name")
-    private String movieName; // We'll use this for movie booking details
+    private String movieName; 
+    
     private Double amount;
     private String orderId;
     private String paymentId;
