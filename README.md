@@ -20,7 +20,7 @@ EasyBook is a smart and user-friendly movie ticket booking system that allows us
 ## 🛠️ Tech Stack
 
 - **Java 21**
-- **Spring Boot**
+- **Spring Boot v3.4.8**
 - **HTML CSS JavaScript**
 - **MySQL**
 - **Razorpay Test Mode**
