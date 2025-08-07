@@ -145,6 +145,8 @@ Below is the homepage of the EasyBook platform:
 ![Homepage](ScreenShots/EasyBookUI/Home/Home1.png)
 ![Homepage](ScreenShots/EasyBookUI/Home/Home2.png)
 ![Homepage](ScreenShots/EasyBookUI/Home/Home3.png)
+![Homepage](ScreenShots/EasyBookUI/Home/Home4.png)
+![Homepage](ScreenShots/EasyBookUI/Home/Home5.png)
 
 
 🤝 Contribution
