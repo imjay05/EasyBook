@@ -147,7 +147,17 @@ Below is the homepage of the EasyBook platform:
 ![Homepage](ScreenShots/EasyBookUI/Home/Home3.png)
 ![Homepage](ScreenShots/EasyBookUI/Home/Home4.png)
 
+### 📄 Footer
 
+The footer section provides branding, navigation, and support links to enhance user accessibility:
+
+![Footer](ScreenShots/EasyBookUI/Footer/Footer.png)
+
+### 🤖 Jaksia – AI Assistant
+
+**Jaksia** is an integrated AI chatbot within EasyBook that assists users in booking tickets and resolving common queries in real time. It improves user experience by offering helpful prompts and guiding users through the flow.
+
+![Jaksia Assistant](ScreenShots/EasyBookUI/JAKSIA/JAKSIA.png)
 
 🤝 Contribution
 Contributions are welcome!
