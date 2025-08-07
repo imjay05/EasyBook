@@ -1,6 +1,3 @@
-public class UserRepository {
-  
-}
 package com.project.EasyBook.repository;
 
 import com.project.EasyBook.entity.User;
