@@ -2,7 +2,7 @@
 
 EasyBook is a smart and user-friendly movie ticket booking system that allows users to easily select their **city**, choose a **movie**, pick a **theatre**, select a **showtime**, and book **seats**—all through a smooth and intuitive interface. 
 
-💡 What makes EasyBook unique is **Jaksia**, an integrated AI assistant that helps users with booking tickets and answers queries related to the platform in real-time.
+💡 What makes EasyBook unique is **JAKSIA**, an integrated AI assistant that helps users with booking tickets and answers queries related to the platform in real-time.
 
 ---
 
@@ -13,7 +13,7 @@ EasyBook is a smart and user-friendly movie ticket booking system that allows us
 - 🪑 Seat selection with availability display
 - 💳 Secure payment integration
 - ✅ Booking confirmation
-- 🤖 **Jaksia** – AI chatbot assistant for booking and help
+- 🤖 **JAKSIA** – AI chatbot assistant for booking and help
 
 ---
 
