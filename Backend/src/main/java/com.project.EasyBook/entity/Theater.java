@@ -11,11 +11,8 @@ public class Theater {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int theaterId;
 
-
     private String name;
-
     private String city;
-
     public Theater() {
     }
 
