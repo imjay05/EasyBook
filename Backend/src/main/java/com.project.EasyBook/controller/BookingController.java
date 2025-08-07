@@ -87,17 +87,14 @@ public class BookingController {
     @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
     public ResponseEntity<?> createBookingOrder(@RequestBody BookingRequest request) {
         try {
-            // Validate request
             if (request.getSeats() == null || request.getSeats().isEmpty()) {
                 return ResponseEntity.badRequest().body(
                         Map.of("status", "error", "message", "No seats selected"));
             }
 
-            // Verify show exists
             Show show = showRepository.findById(request.getShowId())
                     .orElseThrow(() -> new RuntimeException("Show not found"));
 
-            // Get and verify seats
             List<Seat> requestedSeats = seatRepository.findBySeatIdIn(request.getSeats());
             if (requestedSeats.size() != request.getSeats().size()) {
                 return ResponseEntity.badRequest().body(Map.of(
@@ -113,7 +110,6 @@ public class BookingController {
                 ));
             }
 
-            // Create payment order
             PaymentOrder paymentOrder = new PaymentOrder();
             paymentOrder.setName("Guest");
             paymentOrder.setEmail("guest@example.com");
@@ -162,7 +158,6 @@ public class BookingController {
     }
 
 
-    // Step 2: Confirm booking after successful payment
     @PostMapping("/confirm-booking")
     @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
     public ResponseEntity<?> confirmBooking(@RequestBody Map<String, Object> request) {
@@ -172,21 +167,18 @@ public class BookingController {
                     .body("Invalid booking data. Please try again.");
         }
 
-        // safe usage
         String bookingId = (String) request.get("bookingId");
         try {
             String paymentId = (String) request.get("paymentId");
             String orderId = (String) request.get("orderId");
             String signature = (String) request.get("signature");
 
-            // Extract booking data
             Map<String, Object> bookingData = (Map<String, Object>) request.get("bookingData");
             Integer userId = (Integer) bookingData.get("userId");
             Integer showId = (Integer) bookingData.get("showId");
             List<Integer> seats = (List<Integer>) bookingData.get("seats");
             Double totalPrice = (Double) bookingData.get("totalPrice");
 
-            // Verify payment signature (implement signature verification)
             boolean isValidSignature = paymentService.verifySignature(paymentId, orderId, signature);
 
             if (!isValidSignature) {
@@ -197,7 +189,6 @@ public class BookingController {
                 ));
             }
 
-            // Check if seats are still available
             List<Seat> requestedSeats = seatRepository.findBySeatIdIn(seats);
             if (requestedSeats.stream().anyMatch(Seat::getBooked)) {
                 paymentService.updateOrderStatus(paymentId, orderId, "FAILED");
@@ -206,11 +197,8 @@ public class BookingController {
                         "message", "Some seats are no longer available"
                 ));
             }
-
-            // Update payment status
             paymentService.updateOrderStatus(paymentId, orderId, "SUCCESS");
 
-            // Create booking
             Booking booking = bookingService.bookSeats(
                     userId,
                     showId,
@@ -246,7 +234,6 @@ public class BookingController {
                 return ResponseEntity.badRequest().body(
                         Map.of("status", "error", "message", "No seats selected"));
             }
-            // 🔥 Remove user-related code
 
             Show show = showRepository.findById(request.getShowId())
                     .orElseThrow(() -> new RuntimeException("Show not found"));
@@ -303,7 +290,6 @@ public class BookingController {
     @PostMapping("/book")
     @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
     public ResponseEntity<?> bookSeats(@RequestBody BookingRequest request) {
-                                        //@header this one  update
         Integer bookingId = request.getBookingId();
         try {
 
@@ -324,7 +310,6 @@ public class BookingController {
 
             return ResponseEntity.ok(Map.of("message", "Booking successful!", "status", "success", "booking" , savedBooking.getBookingId()));
         } catch (Exception e) {
-            // Redirect to new payment flow
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Map.of("message", e.getMessage(), "status", "error"
                     ));
@@ -439,7 +424,6 @@ public class BookingController {
             movieDetails.put("language", movie.getLang());
             movieDetails.put("duration", movie.getDuration());
 
-            // Get shows for this movie
             List<Show> shows = showRepository.findAll().stream()
                     .filter(show -> show.getMovie() != null &&
                             show.getMovie().getMovieId() == movieId)
