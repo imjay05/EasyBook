@@ -132,3 +132,21 @@ Here's the EER diagram representing the database structure of EasyBook:
 
 ![EER Diagram](ScreenShots/DB%20EER%20Diagram/EER.png)
 
+
+
+🖼️ UI Screenshots
+Below are some key UI screens from the EasyBook platform.
+
+🎬 Homepage
+
+📅 Booking Flow
+
+🪑 Seat Selection
+
+🤝 Contribution
+Contributions are welcome!
+Fork the repo → Make changes → Submit a pull request.
+
+📬 Contact
+Created by Jay 
+🔗 GitHub: @imjay05
