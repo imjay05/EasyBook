@@ -126,7 +126,7 @@ Here’s a breakdown of the main tables used in EasyBook:
 | created_at  | DATETIME      |                    |
 
 
-## 🗺️ ER Diagram
+## 🗺️ EER Diagram
 
 Here's the EER diagram representing the database structure of EasyBook:
 
