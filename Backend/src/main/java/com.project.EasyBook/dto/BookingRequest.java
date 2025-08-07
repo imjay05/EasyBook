@@ -4,18 +4,16 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class BookingRequest {
-
-//    private int userId;  // ✅ ADD THIS
-
+    
     private Integer bookingId;
     private int showId;
     private int movieId;
     private List<Integer> seats;
     private double totalPrice;
-
     private String paymentId;      
     private String paymentStatus;  
     private String paymentDate;
+    
     public int getMovieId() {
         return movieId;
     }
@@ -42,8 +40,6 @@ public class BookingRequest {
     public void setStatus(String status) {
         this.status = status;
     }
-// ✅ Generate getters & setters for userId
-
 
     public Integer getBookingId() {
         return bookingId;
@@ -53,9 +49,6 @@ public class BookingRequest {
         this.bookingId = bookingId;
     }
 
-//    public void setUserId(int userId) {
-//        this.userId = userId;
-//    }
     public int getShowId() {
         return showId;
     }
@@ -103,8 +96,4 @@ public class BookingRequest {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-
-//    public Integer getUserId() {
-//        return userId;
-//    }
 }
