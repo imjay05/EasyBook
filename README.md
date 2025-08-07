@@ -153,9 +153,9 @@ The footer section provides branding, navigation, and support links to enhance u
 
 ![Footer](ScreenShots/EasyBookUI/Footer/Footer.png)
 
-### 🤖 Jaksia – AI Assistant
+### 🤖 JAKSIA – AI Assistant
 
-**Jaksia** is an integrated AI chatbot within EasyBook that assists users in booking tickets and resolving common queries in real time. It improves user experience by offering helpful prompts and guiding users through the flow.
+**JAKSIA** is an integrated AI chatbot within EasyBook that assists users in booking tickets and resolving common queries in real time. It improves user experience by offering helpful prompts and guiding users through the flow.
 
 ![Jaksia Assistant](ScreenShots/EasyBookUI/JAKSIA/JAKSIA.png)
 
