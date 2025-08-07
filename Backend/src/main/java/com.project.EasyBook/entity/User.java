@@ -1,6 +1,5 @@
 package com.project.EasyBook.entity;
 
-
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -81,6 +80,4 @@ public class User  {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }
