@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000", "${allowed.origins}"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
 public class BookingController {
 
     @Autowired
@@ -84,7 +84,7 @@ public class BookingController {
     }
 
     @PostMapping("/create-booking-order")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> createBookingOrder(@RequestBody BookingRequest request) {
         try {
             if (request.getSeats() == null || request.getSeats().isEmpty()) {
@@ -144,7 +144,7 @@ public class BookingController {
     }
 
     @PostMapping("/payment/create-order")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000", "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> createPaymentOrder(@RequestBody PaymentOrder orderDetails) {
         try {
             String response = paymentService.createOrder(orderDetails);
@@ -159,7 +159,7 @@ public class BookingController {
 
 
     @PostMapping("/confirm-booking")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> confirmBooking(@RequestBody Map<String, Object> request) {
         if (request == null) {
             return ResponseEntity
@@ -224,7 +224,7 @@ public class BookingController {
     }
 
     @PutMapping("/bookings/update-payment")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> updatePaymentStatus(@RequestBody BookingRequest request) {
         if(request.getBookingId() == null || request.getPaymentId() == null){
             return ResponseEntity.badRequest().body(Map.of("status", "error", "message", "Missing bookingId or paymentId"));
@@ -288,7 +288,7 @@ public class BookingController {
 
 
     @PostMapping("/book")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> bookSeats(@RequestBody BookingRequest request) {
         Integer bookingId = request.getBookingId();
         try {
@@ -317,7 +317,7 @@ public class BookingController {
     }
 
     @GetMapping("/chat/movies-info")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> getChatMoviesInfo() {
         try {
             Map<String, Object> info = new HashMap<>();
@@ -355,7 +355,7 @@ public class BookingController {
     }
 
     @GetMapping("/chat/search-movies/{query}")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> searchMovies(@PathVariable String query) {
         try {
             List<Movie> movies = movieRepository.findAll().stream()
@@ -408,7 +408,7 @@ public class BookingController {
     }
 
     @GetMapping("/chat/movie/{movieId}/details")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000" , "${allowed.origins}"})
+    @CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"})
     public ResponseEntity<?> getMovieDetails(@PathVariable int movieId) {
         try {
             Optional<Movie> movieOpt = movieRepository.findById(movieId);
