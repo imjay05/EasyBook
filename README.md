@@ -50,9 +50,8 @@ Make sure you have Java 21 and Maven installed.
 Architecture & Flow
 
 
-[Frontend (UI)] → [Backend Spring Boot services] → [Payment Gateway (Razorpay)]
-                 ↑                                          ↓
-              [JAKSIA Logic]                            [Ticket PDF Generation]
+<img width="941" height="128" alt="image" src="https://github.com/user-attachments/assets/bdbc047b-59af-4da7-acf7-62c33def33a4" />
+
 
 ---
 
