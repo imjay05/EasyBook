@@ -47,14 +47,6 @@ Make sure you have Java 21 and Maven installed.
 
 ---
 
-Architecture & Flow
-
-
-<img width="941" height="128" alt="image" src="https://github.com/user-attachments/assets/bdbc047b-59af-4da7-acf7-62c33def33a4" />
-
-
----
-
 ## 🧾 Database Schema
 
 Here’s a breakdown of the main tables used in EasyBook:
