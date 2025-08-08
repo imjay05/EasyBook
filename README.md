@@ -27,6 +27,7 @@ EasyBook is a smart and user-friendly movie ticket booking system that allows us
 
 ---
 
+
 ## 📦 Installation
 
 1. **Clone the repository**
@@ -43,6 +44,17 @@ Open your browser and visit:
 
 http://localhost:8080
 Make sure you have Java 21 and Maven installed.
+
+---
+
+Architecture & Flow
+
+
+[Frontend (UI)] → [Backend Spring Boot services] → [Payment Gateway (Razorpay)]
+                 ↑                                          ↓
+              [JAKSIA Logic]                            [Ticket PDF Generation]
+
+---
 
 ## 🧾 Database Schema
 
